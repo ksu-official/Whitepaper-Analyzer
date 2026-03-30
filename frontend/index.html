@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitepaper Analyzer | Vault3</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="https://static.tildacdn.com/tild3632-3666-4565-a362-356637623035/biglogosmall.png" 
+             alt="Vault3" 
+             style="height: 50px; margin-bottom: 16px;">
+        <canvas id="particle-canvas"></canvas>
+        <p>Paste a link or upload a PDF — get tokenomics & risk analysis in seconds</p>
+    </header>
+
+    <main>
+        <div class="input-box">
+            <input type="text" id="url-input" placeholder="🔗 Paste whitepaper URL here...">
+            <p class="or">— or —</p>
+            <input type="file" id="file-input" accept=".pdf">
+            <label for="file-input" class="file-label" id="file-label">
+                📄 Click to upload PDF
+            </label>
+            <div id="errorBox" class="error hidden"></div>
+            <button id="analyze-btn">[ Analyze ]</button>
+        </div>
+    </main>
+
+    <div class="results-box" id="results">
+
+        <div class="result-grid">
+            <div class="result-card" style="animation-delay: 0.1s">
+                <div class="label">Total Supply</div>
+                <div class="value" id="r-supply">—</div>
+            </div>
+            <div class="result-card" style="animation-delay: 0.2s">
+                <div class="label">Pages Read</div>
+                <div class="value" id="r-pages">—</div>
+            </div>
+            <div class="result-card" style="animation-delay: 0.3s">
+                <div class="label">Vesting</div>
+                <div class="value" id="r-vesting">—</div>
+            </div>
+            <div class="result-card" style="animation-delay: 0.4s">
+                <div class="label">Risk Score</div>
+                <div class="value" id="r-risk">—</div>
+            </div>
+        </div>
+
+        <div class="result-card full" style="animation-delay: 0.5s; margin-bottom: 16px">
+            <div class="label">Token Allocation</div>
+            <canvas id="chart-allocation"></canvas>
+        </div>
+
+        <div class="result-card full" style="animation-delay: 0.6s">
+            <div class="label">Risk Flags</div>
+            <div class="flags" id="r-flags"></div>
+        </div>
+
+        <div class="result-card full" style="animation-delay: 0.7s; margin-top: 16px">
+            <div class="label">AI Summary</div>
+            <div id="r-summary" style="font-size: 0.85rem; line-height: 1.8; color: var(--text); white-space: pre-wrap;"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+</body>
+</html>
